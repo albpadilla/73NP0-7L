@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "c5e0f1f5-f775-4d1d-a38c-d93fd437a04d",
+		"name": "tenpo-desafio-alberto-padilla",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36312212"
+	},
+	"item": [
+		{
+			"name": "/calculation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9393/api/v1/calculation?num1=1000.0&num2=2500.0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9393",
+					"path": [
+						"api",
+						"v1",
+						"calculation"
+					],
+					"query": [
+						{
+							"key": "num1",
+							"value": "1000.0"
+						},
+						{
+							"key": "num2",
+							"value": "2500.0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9393/api/v1/calculation?num1=100.0&num2=100.0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9393",
+							"path": [
+								"api",
+								"v1",
+								"calculation"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "100.0"
+								},
+								{
+									"key": "num2",
+									"value": "100.0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "5"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "4"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 01:18:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"baseSum\": 200,\n    \"finalResult\": 212,\n    \"appliedPercentage\": 6,\n    \"percentageAmount\": 12\n}"
+				},
+				{
+					"name": "rate limit exception",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9393/api/v1/calculation?num1=100.0&num2=100.0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9393",
+							"path": [
+								"api",
+								"v1",
+								"calculation"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "100.0"
+								},
+								{
+									"key": "num2",
+									"value": "100.0"
+								}
+							]
+						}
+					},
+					"status": "Too Many Requests",
+					"code": 429,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "5"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "0"
+						},
+						{
+							"key": "Retry-After",
+							"value": "60"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 01:17:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"path\": \"/api\",\n    \"status\": 429,\n    \"message\": \"rate limit of 5 requests per minute exceeded\",\n    \"timestamp\": \"2025-07-19T21:17:41.722052\",\n    \"error\": \"Too Many Requests\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/call-history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9393/api/v1/call-history?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9393",
+					"path": [
+						"api",
+						"v1",
+						"call-history"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9393/api/v1/call-history?page=0&size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9393",
+							"path": [
+								"api",
+								"v1",
+								"call-history"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 01:17:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"timestamp\": \"2025-07-19T21:17:26.377925\",\n        \"endpoint\": \"/api/v1/calculation\",\n        \"httpMethod\": \"GET\",\n        \"requestParameters\": \"query: num1=100.0&num2=100.0\",\n        \"responseBody\": \"{\\\"baseSum\\\":200.0,\\\"finalResult\\\":220.00,\\\"appliedPercentage\\\":10.0,\\\"percentageAmount\\\":20.00}\",\n        \"responseStatus\": 200,\n        \"errorMessage\": null\n    },\n    {\n        \"id\": 2,\n        \"timestamp\": \"2025-07-19T21:17:30.136171\",\n        \"endpoint\": \"/api/v1/calculation\",\n        \"httpMethod\": \"GET\",\n        \"requestParameters\": \"query: num1=100.0&num2=100.0\",\n        \"responseBody\": \"{\\\"baseSum\\\":200.0,\\\"finalResult\\\":218.00,\\\"appliedPercentage\\\":9.0,\\\"percentageAmount\\\":18.00}\",\n        \"responseStatus\": 200,\n        \"errorMessage\": null\n    },\n    {\n        \"id\": 3,\n        \"timestamp\": \"2025-07-19T21:17:35.349976\",\n        \"endpoint\": \"/api/v1/calculation\",\n        \"httpMethod\": \"GET\",\n        \"requestParameters\": \"query: num1=100.0&num2=100.0\",\n        \"responseBody\": \"{\\\"baseSum\\\":200.0,\\\"finalResult\\\":218.00,\\\"appliedPercentage\\\":9.0,\\\"percentageAmount\\\":18.00}\",\n        \"responseStatus\": 200,\n        \"errorMessage\": null\n    },\n    {\n        \"id\": 4,\n        \"timestamp\": \"2025-07-19T21:17:39.086537\",\n        \"endpoint\": \"/api/v1/calculation\",\n        \"httpMethod\": \"GET\",\n        \"requestParameters\": \"query: num1=100.0&num2=100.0\",\n        \"responseBody\": \"{\\\"baseSum\\\":200.0,\\\"finalResult\\\":202.00,\\\"appliedPercentage\\\":1.0,\\\"percentageAmount\\\":2.00}\",\n        \"responseStatus\": 200,\n        \"errorMessage\": null\n    },\n    {\n        \"id\": 5,\n        \"timestamp\": \"2025-07-19T21:17:39.916079\",\n        \"endpoint\": \"/api/v1/calculation\",\n        \"httpMethod\": \"GET\",\n        \"requestParameters\": \"query: num1=100.0&num2=100.0\",\n        \"responseBody\": \"{\\\"baseSum\\\":200.0,\\\"finalResult\\\":216.00,\\\"appliedPercentage\\\":8.0,\\\"percentageAmount\\\":16.00}\",\n        \"responseStatus\": 200,\n        \"errorMessage\": null\n    }\n]"
+				},
+				{
+					"name": "rate limit exception",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9393/api/v1/call-history?page=0&size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9393",
+							"path": [
+								"api",
+								"v1",
+								"call-history"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "Too Many Requests",
+					"code": 429,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "5"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "0"
+						},
+						{
+							"key": "Retry-After",
+							"value": "60"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 20 Jul 2025 01:19:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 429,\n    \"path\": \"/api\",\n    \"error\": \"Too Many Requests\",\n    \"timestamp\": \"2025-07-19T21:19:49.869066\",\n    \"message\": \"rate limit of 5 requests per minute exceeded\"\n}"
+				}
+			]
+		}
+	]
+}

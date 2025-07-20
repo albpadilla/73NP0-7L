@@ -6,4 +6,5 @@ import java.math.BigDecimal;
 
 public interface CalculationService {
     public CalculationResult calculate(BigDecimal num1, BigDecimal num2);
+    public BigDecimal applyPercentage(BigDecimal amount, BigDecimal percentage);
 }

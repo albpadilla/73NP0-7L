@@ -1,0 +1,53 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /data/postgres
+      POSTGRES_DB: DESAFIO_TENPO
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d DESAFIO_TENPO -U ${POSTGRES_USER}" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  app:
+    container_name: tenpo-desafio-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/DESAFIO_TENPO
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      JAVA_OPTS: "-Xmx512m -Xms256m"
+    ports:
+      - "9393:8080"
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db:

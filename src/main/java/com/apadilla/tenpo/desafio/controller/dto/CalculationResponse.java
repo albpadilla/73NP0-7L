@@ -5,5 +5,10 @@ import lombok.Builder;
 import java.math.BigDecimal;
 
 @Builder
-public record CalculationResponse(BigDecimal percent, BigDecimal result) {
+public record CalculationResponse(
+        BigDecimal baseSum,
+        BigDecimal finalResult,
+        double appliedPercentage,
+        BigDecimal percentageAmount
+) {
 }
